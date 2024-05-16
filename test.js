@@ -1,8 +1,15 @@
 const AniwaveScraper = require("./index").default
 const aniwave = new AniwaveScraper
 
-aniwave.animeSearch("re:zero").then((data) => {
+const name = "solo leveling"
+
+aniwave.animeSearch(name).then((data) => {
+    console.log(`There are ${data.length} results for ${name}`)
     console.log(data)
+
+    console.log(`Anime Name: ${data[0].title}`)
+    console.log(`Episodes: ${data[0].total_episodes.total}`)
+    console.log(`Link: ${data[0].url}`)
 })
 
 // aniwave.recentRelease("china", 1).then((data) => {
