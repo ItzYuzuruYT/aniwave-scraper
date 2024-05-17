@@ -96,8 +96,8 @@ below are the accessible properties for every item that exists in the list
 accepted parameters
 
 1. **Type**: below are the accepted types
-<br>
-all / sub / dub / china / trending / random
+
+    all / sub / dub / china / trending / random
 
 2. **Page**: page number (1, 2, 3,....)
 
