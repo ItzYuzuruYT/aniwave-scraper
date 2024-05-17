@@ -32,7 +32,7 @@ NOTE: some properties may not be returned
                 date_aired: string,
                 broadcast: string,
                 status: string
-            }
+            },
             type: string,
             country: string,
             genres: string[],
@@ -70,7 +70,7 @@ below are the accessible properties for every item that exists in the list
         sub: number,
         dub: number,
         total: number
-    }
+    },
     type: string
 }
 ```
@@ -88,7 +88,7 @@ below are the accessible properties for every item that exists in the list
         sub: number,
         dub: number,
         total: number
-    }
+    },
     type: string
 }
 ```
@@ -115,7 +115,7 @@ all / sub / dub / china / trending / random
         sub: number,
         dub: number,
         total: number
-    }
+    },
     type: string,
     rank: number
 }
