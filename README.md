@@ -209,6 +209,7 @@ aniwave.recentRelease("all", 1).then((animes) => {
     console.log(animes)
 })
 ```
+
 another example with **type - china** and **page - 5**
 
 ```js
@@ -224,6 +225,7 @@ aniwave.recentRelease("china", 5).then((animes) => {
 duration : day | week | month
 
 returns top anime list of the day
+
 ```js
 aniwave.topAnime("day").then((animes) => {
     console.log(animes)
@@ -231,6 +233,7 @@ aniwave.topAnime("day").then((animes) => {
 ```
 
 returns top anime list of the week
+
 ```js
 aniwave.topAnime("week").then((animes) => {
     console.log(animes)
@@ -238,6 +241,7 @@ aniwave.topAnime("week").then((animes) => {
 ```
 
 returns top anime list of the month
+
 ```js
 aniwave.topAnime("month").then((animes) => {
     console.log(animes)
