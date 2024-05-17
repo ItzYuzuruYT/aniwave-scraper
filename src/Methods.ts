@@ -31,8 +31,6 @@ class Methods {
             poster: `${$(elem).find(".ani.poster > a > img, .inner > .poster > span > img").attr("src")?.replace(/@100(?=\.jpg)/gi, "")}`, // done
             total_episodes: (() => {
                 const sd = $(elem).find(".ani.poster > a > .meta > .inner > .left, .inner > .info > div.meta > span.ep-wrap.dot") // not done
-                // console.log($(sd).find(".ep-status").hasClass("dub"))
-                // console.log(".")
 
                 const sub = $(sd).find(".ep-status").hasClass("sub") ? this.getSubtitles(sd) : 0
                 // dubtitles LMAOOOOOO
@@ -51,10 +49,7 @@ class Methods {
 
     protected getAnimeMeta(anime: any, container: any): void {
         const $ = cheerio.load(container.html())
-
-        const left = $(".info > .bmeta > .meta").eq(0)
-        const right = $(".info > .bmeta > .meta").eq(1)
-        const spen = "span:not([itemprop]):not([class])"
+        // const spen = "span:not([itemprop]):not([class])"             // i wanted to use this somewhere but i forgor
 
         anime.meta = {
             title: `${$(".info > .title.d-title").text()}`,
@@ -76,29 +71,6 @@ class Methods {
                 else anime.meta[`${metaVar}`] = metaVal
             })
         })
-
-
-        // anime.meta = {
-        //     title: `${$(".info > .title.d-title").text()}`,
-        //     jptitle: `${$(".info > .title.d-title").attr("data-jp")}`,
-        //     names: `${$(".info > .names").text()}`,
-        //     description: `${$(".info > .synopsis > .shorting > .content").text()}`,
-        //     poster: `${$(".poster > span > img").attr("src")}`,
-        //     type: `${left.find("div").eq(0).find(spen).text().trim()}`,
-        //     country: `${left.find("div").eq(1).find(spen).text().trim()}`,
-        //     aired: {
-        //         premiered: `${left.find("div").eq(2).find(spen).text().trim()}`,
-        //         date_aired: `${left.find("div").eq(3).find(spen).text().trim()}`,
-        //         broadcast: `${left.find("div").eq(4).find(spen).text().trim()}`,
-        //         status: `${left.find("div").eq(5).find(spen).text().trim()}`
-        //     },
-        //     genres: left.find("div").eq(6).find(spen).text().trim().replace(/\s+/g, "").split(","),
-        //     mal_rating: `${right.find("div").eq(0).find(spen).text().trim()}`,
-        //     duration: `${right.find("div").eq(1).find(spen).text().trim()}`,
-        //     episodes: parseInt(`${right.find("div").eq(2).find(spen).text().trim()}`),
-        //     studios: `${right.find("div").eq(3).find(spen).text().trim()}`,
-        //     producers: right.find("div").eq(4).find(spen).text().trim().replace(/\s+/g, "").split(",")
-        // }
     }
 
 
@@ -107,7 +79,7 @@ class Methods {
         const $ = cheerio.load(container.html())
         anime.related = []
 
-        // i think it is very clear that im high on air atm. this thing prolly gon break in no time
+        // i think it is very clear that im high on air at this point. this thing prolly gon break in no time
         container.container = [".inner > .scaff.side.items > .item", ".inner > .info"]
         $("div.tab-content").each((_e, elem) => {
             $(elem).find(container.container[0]).each((_i, item) => {

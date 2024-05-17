@@ -4,7 +4,7 @@
   "description": "a simple anime scraper for aniwave website",
   "main": "build/index.js",
   "scripts": {
-    "start": "tsc && node build/test.js",
+    "start": "tsc && node build/examples.js",
     "build": "tsc"
   },
   "repository": {
@@ -26,10 +26,12 @@
   "homepage": "https://github.com/ItzYuzuruYT/aniwave-scraper#readme",
   "devDependencies": {
     "@types/node": "^20.12.11",
+    "@types/user-agents": "^1.0.4",
     "typescript": "^5.4.5"
   },
   "dependencies": {
     "axios": "^1.6.8",
-    "cheerio": "^1.0.0-rc.12"
+    "cheerio": "^1.0.0-rc.12",
+    "user-agents": "^1.1.207"
   }
 }

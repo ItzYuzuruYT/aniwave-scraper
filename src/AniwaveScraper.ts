@@ -1,47 +1,12 @@
 import axios from "axios"
 import cheerio from "cheerio"
+import UserAgent from "user-agents"
 import Methods from "./Methods"
 
 import { items, meta } from "./Interfaces"
 
 const errmsg = ["[ X ] failed to fetch the data", "check whether the anime name or url is valid"]
-
-// interface items {
-//     title: string,
-//     jptitle: string,
-//     url: string,
-//     poster: string,
-//     total_episodes: {
-//         sub: number,
-//         dub: number,
-//         total: number
-//     }
-//     type: string,
-//     rank?: number
-// }[]
-
-
-// interface meta {
-//     title?: string,
-//     jptitle?: string,
-//     names?: string[],
-//     description?: string,
-//     poster?: string,
-//     aired?: {
-//         premiered?: string,
-//         date_aired?: string,
-//         broadcast?: string,
-//         status?: string
-//     }
-//     type?: string,
-//     country?: string,
-//     genres?: string[],
-//     mal?: string,
-//     duration?: string,
-//     episodes?: number,
-//     studios?: string,
-//     producers?: string[]
-// }
+const useragent = new UserAgent({deviceCategory: "desktop"})
 
 class AniwaveScraper extends Methods {
     async animeSearch(query: string): Promise<items[]> {
@@ -51,7 +16,7 @@ class AniwaveScraper extends Methods {
                 url: searchURL,
                 method: "GET",
                 headers: {
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+                    "User-Agent": `${useragent}`
                 }
             }).then((res) => {
                 let $ = cheerio.load(res.data)
@@ -77,7 +42,7 @@ class AniwaveScraper extends Methods {
                 url: recentURL,
                 method: "GET",
                 headers: {
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+                    "User-Agent": `${useragent}`
                 }
             }).then((res) => {
                 let $ = cheerio.load(res.data.result)
@@ -104,7 +69,7 @@ class AniwaveScraper extends Methods {
                 url: topURL,
                 method: "GET",
                 headers: {
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+                    "User-Agent": `${useragent}`
                 }
             }).then((res) => {
                 const $ = cheerio.load(res.data)
@@ -131,13 +96,10 @@ class AniwaveScraper extends Methods {
                 url: url,
                 method: "GET",
                 headers: {
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+                    "User-Agent": `${useragent}`
                 }
             }).then((res) => {
                 let $ = cheerio.load(res.data)
-                // const errPage = $("body").find(".error-page").hasClass("error-page")
-                // console.log(errPage)
-                // if(errPage) reject(errmsg)
 
                 const metaContainer = $("#body").find(".aside-wrapper > .main > #w-info > .binfo")
                 const relatedContainer = $("#body").find(".aside-wrapper > .sidebar > #w-related > .body")

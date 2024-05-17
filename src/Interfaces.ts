@@ -48,6 +48,4 @@ interface meta {
 }
 
 
-export {
-    items, meta
-}
+export { items, meta }
