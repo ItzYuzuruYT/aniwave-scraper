@@ -1,6 +1,6 @@
 {
   "name": "aniwave-scraper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a simple anime scraper for aniwave website",
   "main": "build/index.js",
   "scripts": {
