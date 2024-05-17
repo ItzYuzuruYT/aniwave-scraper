@@ -14,10 +14,10 @@ npm install aniwave-scraper
 
 ## # animeInfo (url)
 >fetches meta information about a particular anime 
-<br>
+
 below is the information object structure that is returned
-<br>
-`NOTE: some properties may not be returned`
+
+NOTE: some properties may not be returned
 
 ```js
 {
@@ -57,7 +57,7 @@ below is the information object structure that is returned
 
 ## # animeSearch (name)
 > searches for animes with the specified name and returns a list
-<br>
+
 below are the accessible properties for every item that exists in the list
 
 ```js
@@ -77,7 +77,7 @@ below are the accessible properties for every item that exists in the list
 
 ## # recentRelease (type, page)
 > returns list of animes that have been released as of recent
-<br>
+
 ```js
 {
     title: string,
@@ -92,6 +92,7 @@ below are the accessible properties for every item that exists in the list
     type: string
 }
 ```
+
 accepted parameters
 
 1. **Type**: below are the accepted types
@@ -103,7 +104,7 @@ all / sub / dub / china / trending / random
 
 ## # topAnime (duration)
 > returns list of top animes of the day, week or month
-<br>
+
 ```js
 {
     title: string,
@@ -119,6 +120,7 @@ all / sub / dub / china / trending / random
     rank: number
 }
 ```
+
 <br>
 accepted parameters
 
@@ -129,10 +131,11 @@ accepted parameters
 
 # Examples
 let's look at a couple of examples
-<br>
+
 tried making it as beginner friendly as possible
 
 ### **`Searching for an Anime`**
+
 ```js
 const AniwaveScraper = require("aniwave-scraper").default
 const aniwave = new AniwaveScraper
@@ -172,6 +175,7 @@ There are 2 results for solo leveling
 ```
 
 then to access the properties
+
 ```js
 console.log(`result 1 = ${animes[0].title}`)
 console.log(`episodes = ${animes[0].total_episodes.total}`)
@@ -181,6 +185,7 @@ console.log(`episodes = ${animes[1].total_episodes.total}`)
 ```
 
 which would output
+
 ```js
 result 1 = Solo Leveling
 episodes = 12
@@ -190,13 +195,13 @@ episodes = 1
 
 > the above example should provide a basic idea so i wont include any more outputs as it's pretty straightforward
 <br>
-checkout [examples.js](https://github.com/ItzYuzuruYT/aniwave-scraper/blob/main/examples.js) for more detailed examples
+checkout https://github.com/ItzYuzuruYT/aniwave-scraper/blob/main/examples.js for more detailed examples
 
 
 ### **`Fetch Recently Released Animes`**
 
 type : all | sub | dub | china | trending | random
-<br>
+
 page : 1, 2, 3, 4,....
 
 ```js
@@ -217,8 +222,7 @@ aniwave.recentRelease("china", 5).then((animes) => {
 ### **`Fetch Top Ranking Animes`**
 
 duration : day | week | month
-<br>
-<br>
+
 returns top anime list of the day
 ```js
 aniwave.topAnime("day").then((animes) => {
@@ -251,6 +255,7 @@ aniwave.animeInfo("https://aniwave.to/watch/solo-leveling.3rpv2").then((anime) =
 ```
 > animeInfo method returns a ton of metadata properties depending upon the anime being scraped
 <br>
+
 do check the `Functions` section above for whole list
 
 <br>
